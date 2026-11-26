@@ -12,6 +12,7 @@ Password: `Password@123`
 | No. | Member Name          | Student ID | Screen File          
 | :--- |:---------------------| :--- |:---------------------
 | 01 | T M V S Kumarasinghe | 23IT0498 | `vinosha.dart`, `home_members_screen.dart`, `login_page.dart`, `main.dart`      
+| 02 | H G M N Kodiweera | 23IT0496 | `numaya.dart`
 | 03 | K W M N V Kumari      | 23IT0499 | `vindya.dart`        
 | 04 | H G O Kumari      | 23IT0500 | `oshini.dart`        
 | 05 | G G C N Kumara      | 23IT0497 | `chamod.dart`        
