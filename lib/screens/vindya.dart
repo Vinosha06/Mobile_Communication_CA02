@@ -42,7 +42,7 @@ class _Member3ScreenState extends State<Member3Screen> {
       backgroundColor: const Color(0xFFFFF7FA),
       appBar: AppBar(
         backgroundColor: const Color(0xFFF8BBD0),
-        title: const Text('vindya '),
+        title: const Text('Member 3 '),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

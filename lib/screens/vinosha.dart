@@ -11,15 +11,16 @@ class Member1Screen extends StatefulWidget {
 class _Member1ScreenState extends State<Member1Screen> {
 int _likes = 15;
 bool _isLiked = false;
+int _selectedTab = 0;
 
 static const String fullName = 'T.M. Vinosha Sewmini Kumarasinghe';
-static const String roleTitle = 'IT Undergraduate • NDT (ITUM)';
+static const String roleTitle = 'IT UNDERGRADUATE • NDT (ITUM)';
 static const String studentId = '23IT0498';
 static const String address = 'Anuradhapura, Sri Lanka';
 static const String email = 'vinoshaseumini@gmail.com';
 static const String photoPath = 'assets/images/vinosha.jpeg';
 static const String bioSummary =
-'I am a dedicated Information Technology undergraduate at the Institute of Technology, University of Moratuwa (ITUM), originally from Anuradhapura. With a strong passion for Flutter mobile development, full-stack engineering, and UI/UX wireframing, I enjoy turning complex ideas into clean, user-friendly applications. Driven by curiosity and strong leadership skills, I thrive in collaborative team environments and constantly explore innovative ways to solve real-world problems through creative design.';
+'I am a dedicated Information Technology undergraduate at the Institute of Technology, University of Moratuwa (ITUM), originally from Anuradhapura. With a strong passion for Flutter mobile development, full-stack engineering, and UI/UX wireframing, I enjoy turning complex ideas into clean, user-friendly applications.';
 
 static const List<String> academics = [
 'National Diploma in Technology (NDT) in Information Technology - ITUM',
@@ -33,36 +34,41 @@ static const List<String> softSkills = [
 'Communication',
 'Time Management',
 'Critical Thinking',
-'Adaptability & Quick Learning',
-'Decision Making',
+'Adaptability',
+'Team Collaboration',
+'Attention to Detail',
 ];
 
 static const List<String> specialTalents = [
 'Flutter & Full-Stack App Building',
-'UI/UX Wireframing',
+'UI/UX Wireframing & Prototyping',
 'Creative Designing',
-'Database Architecture & API Integration',
-'Responsive Web Design',
-'Interactive Prototyping & Figma',
+'API & Database Integration',
+'Project Presentation',
 ];
 
 @override
 Widget build(BuildContext context) {
 return Scaffold(
-backgroundColor: const Color(0xFFF4F6FB),
+backgroundColor: const Color(0xFFFAF8F5), // Warm Editorial Paper Color
 appBar: AppBar(
 elevation: 0,
+backgroundColor: const Color(0xFFFAF8F5),
+foregroundColor: const Color(0xFF1E1B4B),
 title: const Text(
-'Member 01',
-style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17, letterSpacing: 0.3),
+'Member 1',
+style: TextStyle(
+fontSize: 13,
+fontWeight: FontWeight.w800,
+letterSpacing: 1.5,
+color: Color(0xFF1E1B4B),
 ),
-backgroundColor: const Color(0xFF283593), 
-foregroundColor: Colors.white,
+),
 actions: [
 Padding(
-padding: const EdgeInsets.only(right: 14),
+padding: const EdgeInsets.only(right: 16),
 child: InkWell(
-borderRadius: BorderRadius.circular(20),
+borderRadius: BorderRadius.circular(30),
 onTap: () {
 setState(() {
 _isLiked = !_isLiked;
@@ -70,22 +76,27 @@ _likes += _isLiked ? 1 : -1;
 });
 },
 child: Container(
-padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
 decoration: BoxDecoration(
-color: Colors.white.withValues(alpha: 0.15),
-borderRadius: BorderRadius.circular(20),
+color: _isLiked ? const Color(0xFF1E1B4B) : Colors.white,
+borderRadius: BorderRadius.circular(30),
+border: Border.all(color: const Color(0xFF1E1B4B), width: 1.2),
 ),
 child: Row(
 children: [
 Icon(
 _isLiked ? Icons.favorite : Icons.favorite_border,
-color: _isLiked ? Colors.redAccent.shade100 : Colors.white,
-size: 19,
+color: _isLiked ? const Color(0xFFF59E0B) : const Color(0xFF1E1B4B),
+size: 17,
 ),
 const SizedBox(width: 6),
 Text(
 '$_likes',
-style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+style: TextStyle(
+fontWeight: FontWeight.bold,
+fontSize: 13,
+color: _isLiked ? Colors.white : const Color(0xFF1E1B4B),
+),
 ),
 ],
 ),
@@ -95,283 +106,340 @@ style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
 ],
 ),
 body: SingleChildScrollView(
+padding: const EdgeInsets.fromLTRB(18, 8, 18, 30),
+child: Center(
+child: ConstrainedBox(
+constraints: const BoxConstraints(maxWidth: 760),
 child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
 children: [
-// Top Hero Banner and Profile Photo
-Stack(
-clipBehavior: Clip.none,
-alignment: Alignment.center,
-children: [
-// Deep Indigo Gradient Header
-Container(
-height: 110,
-width: double.infinity,
-decoration: const BoxDecoration(
-gradient: LinearGradient(
-colors: [Color(0xFF283593), Color(0xFF3F51B5)],
-begin: Alignment.topCenter,
-end: Alignment.bottomCenter,
-),
-borderRadius: BorderRadius.only(
-bottomLeft: Radius.circular(36),
-bottomRight: Radius.circular(36),
-),
-),
-),
 
-Positioned(
-top: 32,
-child: Container(
-padding: const EdgeInsets.all(5),
+Container(
+padding: const EdgeInsets.all(20),
 decoration: BoxDecoration(
-color: Colors.white,
-borderRadius: BorderRadius.circular(28),
+color: const Color(0xFF1E1B4B), // Deep Royal Indigo
+borderRadius: BorderRadius.circular(24),
 boxShadow: [
 BoxShadow(
-color: const Color(0xFF283593).withValues(alpha: 0.22),
-blurRadius: 18,
-offset: const Offset(0, 8),
+color: const Color(0xFF1E1B4B).withValues(alpha: 0.18),
+blurRadius: 20,
+offset: const Offset(0, 10),
 ),
 ],
 ),
-child: ClipRRect(
-borderRadius: BorderRadius.circular(23),
-child: memberAvatarImage(
-photoPath,
-width: 125,
-height: 125,
-),
-),
-),
-),
-],
-),
-
-const SizedBox(height: 68),
-
-// 2. Name, Role, ID Badge and Contact Info
-Padding(
-padding: const EdgeInsets.symmetric(horizontal: 20),
-child: Column(
+child: Row(
+crossAxisAlignment: CrossAxisAlignment.center,
 children: [
-const Text(
-fullName,
-textAlign: TextAlign.center,
-style: TextStyle(
-fontSize: 21,
-fontWeight: FontWeight.bold,
-color: Color(0xFF0F172A),
-letterSpacing: -0.2,
+
+Expanded(
+child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+children: [
+Container(
+padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+decoration: BoxDecoration(
+color: const Color(0xFFF59E0B).withValues(alpha: 0.2),
+borderRadius: BorderRadius.circular(6),
+border: Border.all(color: const Color(0xFFF59E0B), width: 0.8),
 ),
-),
-const SizedBox(height: 4),
-Text(
+child: const Text(
 roleTitle,
 style: TextStyle(
-fontSize: 14,
-fontWeight: FontWeight.w500,
-color: Colors.indigo.shade700,
-),
-),
-const SizedBox(height: 10),
-// Student ID Pill
-Container(
-padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-decoration: BoxDecoration(
-color: Colors.indigo.shade50,
-borderRadius: BorderRadius.circular(20),
-border: Border.all(color: Colors.indigo.shade200),
-),
-child: Text(
-'Student ID: $studentId',
-style: TextStyle(
-fontSize: 12.5,
-fontWeight: FontWeight.w600,
-color: Colors.indigo.shade900,
+color: Color(0xFFFCD34D),
+fontSize: 10.5,
+fontWeight: FontWeight.bold,
+letterSpacing: 1.0,
 ),
 ),
 ),
 const SizedBox(height: 12),
-// Email & Location
-Wrap(
-alignment: WrapAlignment.center,
-spacing: 16,
-runSpacing: 6,
-children: [
-_contactChip(Icons.email_outlined, email),
-_contactChip(Icons.location_on_outlined, address),
-],
-),
-],
-),
-),
-
-const SizedBox(height: 18),
-
-// Editorial Details Card
-Padding(
-padding: const EdgeInsets.fromLTRB(16, 0, 16, 28),
-child: Card(
-elevation: 2,
-shadowColor: Colors.black.withValues(alpha: 0.05),
+const Text(
+fullName,
+style: TextStyle(
+fontSize: 21,
+fontWeight: FontWeight.bold,
 color: Colors.white,
-shape: RoundedRectangleBorder(
-borderRadius: BorderRadius.circular(22),
+height: 1.25,
 ),
-child: Padding(
-padding: const EdgeInsets.all(20),
+),
+const SizedBox(height: 10),
+_heroInfoRow(Icons.badge_outlined, 'Student ID: $studentId'),
+const SizedBox(height: 5),
+_heroInfoRow(Icons.email_outlined, email),
+const SizedBox(height: 5),
+_heroInfoRow(Icons.location_on_outlined, address),
+],
+),
+),
+const SizedBox(width: 16),
+
+Stack(
+children: [
+Container(
+margin: const EdgeInsets.only(left: 6, top: 6),
+width: 118,
+height: 138,
+decoration: BoxDecoration(
+borderRadius: BorderRadius.circular(18),
+border: Border.all(color: const Color(0xFFF59E0B), width: 2),
+),
+),
+ClipRRect(
+borderRadius: BorderRadius.circular(18),
+child: memberAvatarImage(
+photoPath,
+width: 118,
+height: 138,
+),
+),
+],
+),
+],
+),
+),
+
+const SizedBox(height: 20),
+
+// 2. EDITOR'S NOTE (About Me Quote Style)
+Container(
+padding: const EdgeInsets.all(18),
+decoration: BoxDecoration(
+color: Colors.white,
+borderRadius: BorderRadius.circular(18),
+border: const Border(
+left: BorderSide(color: Color(0xFFF59E0B), width: 4),
+),
+boxShadow: [
+BoxShadow(
+color: Colors.black.withValues(alpha: 0.04),
+blurRadius: 10,
+offset: const Offset(0, 4),
+),
+],
+),
 child: Column(
 crossAxisAlignment: CrossAxisAlignment.start,
 children: [
-// About Me Summary
-_sectionTitle(Icons.person_outline_rounded, 'About Me'),
-const SizedBox(height: 8),
+const Text(
+'ABOUT ME',
+style: TextStyle(
+fontSize: 11.5,
+fontWeight: FontWeight.w800,
+letterSpacing: 1.2,
+color: Color(0xFFD97706),
+),
+),
+const SizedBox(height: 6),
 Text(
 bioSummary,
 style: const TextStyle(
 fontSize: 13.5,
-color: Color(0xFF475569),
-height: 1.5,
+color: Color(0xFF334155),
+height: 1.55,
+),
+),
+],
 ),
 ),
 
-const Divider(height: 28),
-
-// Academic Qualifications
-_sectionTitle(Icons.school_outlined, 'Academic Qualifications'),
+const SizedBox(height: 20),
+// 3. INTERACTIVE FILTER TABS (State Management)
+Row(
+children: [
+_filterTab(0, 'Overview'),
+const SizedBox(width: 8),
+_filterTab(1, 'Academics'),
+const SizedBox(width: 8),
+_filterTab(2, 'Skills & Talents'),
+],
+),
+const SizedBox(height: 18),
+// 4. ACADEMIC QUALIFICATIONS (Numbered Editorial Index)
+if (_selectedTab == 0 || _selectedTab == 1) ...[
+_editorialSectionHeader('01', 'Academic Qualifications'),
 const SizedBox(height: 12),
-...academics.map((a) => Padding(
-padding: const EdgeInsets.only(bottom: 10),
+Container(
+padding: const EdgeInsets.all(18),
+decoration: BoxDecoration(
+color: Colors.white,
+borderRadius: BorderRadius.circular(20),
+border: Border.all(color: const Color(0xFFE2E8F0)),
+),
+child: Column(
+children: List.generate(academics.length, (index) {
+return Padding(
+padding: EdgeInsets.only(bottom: index == academics.length - 1 ? 0 : 14),
 child: Row(
 crossAxisAlignment: CrossAxisAlignment.start,
 children: [
-Container(
-margin: const EdgeInsets.only(top: 5),
-width: 7,
-height: 7,
-decoration: const BoxDecoration(
-color: Color(0xFF3F51B5),
-shape: BoxShape.circle,
-),
-),
-const SizedBox(width: 12),
-Expanded(
-child: Text(
-a,
-style: const TextStyle(
-fontSize: 13.5,
-color: Color(0xFF1E293B),
-height: 1.4,
-),
-),
-),
-],
-),
-)),
-  const Divider(height: 28),
-// Soft Skills
-  _sectionTitle(Icons.psychology_outlined, 'Soft Skills'),
-  const SizedBox(height: 12),
-  Wrap(
-    spacing: 8,
-    runSpacing: 8,
-    children: softSkills
-        .map((s) => Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF8FAFC),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.indigo.shade100),
+  Container(
+    width: 28,
+    height: 28,
+    alignment: Alignment.center,
+    decoration: BoxDecoration(
+      color: const Color(0xFF1E1B4B),
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Text(
+      '0${index + 1}',
+      style: const TextStyle(
+        color: Color(0xFFFCD34D),
+        fontWeight: FontWeight.bold,
+        fontSize: 12,
       ),
+    ),
+  ),
+  const SizedBox(width: 12),
+  Expanded(
+    child: Padding(
+      padding: const EdgeInsets.only(top: 3),
       child: Text(
-        s,
+        academics[index],
         style: const TextStyle(
-          color: Color(0xFF1E293B),
-          fontSize: 12.5,
+          fontSize: 13.5,
           fontWeight: FontWeight.w500,
+          color: Color(0xFF1E293B),
+          height: 1.4,
         ),
       ),
-    ))
-        .toList(),
+    ),
   ),
-  const Divider(height: 28),
-// Special Talents
-  _sectionTitle(Icons.workspace_premium_outlined, 'Special Talents'),
-  const SizedBox(height: 12),
-  Wrap(
-    spacing: 8,
-    runSpacing: 8,
-    children: specialTalents
-        .map((t) => Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
-      decoration: BoxDecoration(
-        color: Colors.indigo.shade50.withValues(alpha: 0.7),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.indigo.shade200),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.star_rounded, size: 16, color: Colors.amber.shade700),
-          const SizedBox(width: 6),
-          Text(
-            t,
-            style: TextStyle(
-              color: Colors.indigo.shade900,
+],
+),
+);
+}),
+),
+),
+  const SizedBox(height: 22),
+],
+// 5. SOFT SKILLS & SPECIAL TALENTS
+  if (_selectedTab == 0 || _selectedTab == 2) ...[
+    _editorialSectionHeader('02', 'Soft Skills'),
+    const SizedBox(height: 12),
+    Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: softSkills.map((skill) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: const Color(0xFFCBD5E1)),
+          ),
+          child: Text(
+            skill,
+            style: const TextStyle(
               fontSize: 12.5,
               fontWeight: FontWeight.w600,
+              color: Color(0xFF1E1B4B),
             ),
           ),
-        ],
-      ),
-    ))
-        .toList(),
-  ),
+        );
+      }).toList(),
+    ),
+    const SizedBox(height: 22),
+    _editorialSectionHeader('03', 'Special Talents'),
+    const SizedBox(height: 12),
+    Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: specialTalents.map((talent) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFEF3C7), // Soft Gold Tint
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: const Color(0xFFF59E0B)),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.auto_awesome, size: 15, color: Color(0xFFB45309)),
+              const SizedBox(width: 6),
+              Text(
+                talent,
+                style: const TextStyle(
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF78350F),
+                ),
+              ),
+            ],
+          ),
+        );
+      }).toList(),
+    ),
+  ],
 ],
 ),
 ),
-),
-),
-],
 ),
 ),
 );
 }
-Widget _contactChip(IconData icon, String text) {
+Widget _heroInfoRow(IconData icon, String text) {
   return Row(
-    mainAxisSize: MainAxisSize.min,
     children: [
-      Icon(icon, size: 15, color: Colors.indigo.shade600),
-      const SizedBox(width: 5),
-      Text(
-        text,
-        style: const TextStyle(
-          fontSize: 12.5,
-          color: Color(0xFF475569),
-          fontWeight: FontWeight.w500,
+      Icon(icon, size: 14, color: const Color(0xFFFCD34D)),
+      const SizedBox(width: 7),
+      Expanded(
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 12.5,
+            color: Color(0xFFE2E8F0),
+          ),
+          overflow: TextOverflow.ellipsis,
         ),
       ),
     ],
   );
 }
-Widget _sectionTitle(IconData icon, String title) {
+Widget _filterTab(int index, String label) {
+  final isSelected = _selectedTab == index;
+  return GestureDetector(
+    onTap: () => setState(() => _selectedTab = index),
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: isSelected ? const Color(0xFF1E1B4B) : Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: isSelected ? const Color(0xFF1E1B4B) : const Color(0xFFCBD5E1),
+        ),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 12.5,
+          fontWeight: FontWeight.w600,
+          color: isSelected ? Colors.white : const Color(0xFF475569),
+        ),
+      ),
+    ),
+  );
+}
+Widget _editorialSectionHeader(String number, String title) {
   return Row(
     children: [
-      Container(
-        padding: const EdgeInsets.all(7),
-        decoration: BoxDecoration(
-          color: Colors.indigo.shade50,
-          borderRadius: BorderRadius.circular(10),
+      Text(
+        number,
+        style: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w900,
+          color: Color(0xFFD97706),
         ),
-        child: Icon(icon, size: 18, color: const Color(0xFF283593)),
       ),
+      const SizedBox(width: 8),
+      Container(width: 18, height: 2, color: const Color(0xFFD97706)),
       const SizedBox(width: 10),
       Text(
         title,
         style: const TextStyle(
+          fontSize: 17,
           fontWeight: FontWeight.bold,
-          fontSize: 16,
-          color: Color(0xFF0F172A),
+          color: Color(0xFF1E1B4B),
         ),
       ),
     ],
