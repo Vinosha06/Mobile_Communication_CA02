@@ -49,7 +49,7 @@ class HomeMembersScreen extends StatelessWidget {
         studentId: '23IT0500',
         subtitle: 'Student at ITUM',
         color: Colors.teal,
-        builder: (_) => const PlaceholderMemberScreen(title: 'Member 4'),
+        builder: (_) => const Member4Screen(),
       ),
       MemberItem(
         number: 5,
