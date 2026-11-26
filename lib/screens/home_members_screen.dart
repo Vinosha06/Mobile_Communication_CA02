@@ -5,12 +5,10 @@ import 'vinosha.dart';
 import 'randil.dart';
 import 'matheesha.dart';
 import 'Kirushajithan.dart';
-import 'udara.dart';
 import 'numaya.dart';
 import 'chamod.dart';
 import 'vindya.dart';
 import 'oshini.dart';
-
 
 class HomeMembersScreen extends StatelessWidget {
   const HomeMembersScreen({super.key});
@@ -85,11 +83,11 @@ class HomeMembersScreen extends StatelessWidget {
       ),
       MemberItem(
         number: 9,
-        name: 'Matheesha Kekula',
+        name: 'Matheesha IK Jayawardhana',
         studentId: '23IT0493',
         subtitle: 'Student at ITUM',
         color: Colors.brown,
-        builder: (_) => const PlaceholderMemberScreen(title: 'Member 9'),
+        builder: (_) => const Member9Screen(),
       ),
     ];
 
@@ -126,10 +124,7 @@ class HomeMembersScreen extends StatelessWidget {
               subtitle: Text('${m.studentId} • ${m.subtitle}'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: m.builder),
-                );
+                Navigator.push(context, MaterialPageRoute(builder: m.builder));
               },
             ),
           );
@@ -139,9 +134,9 @@ class HomeMembersScreen extends StatelessWidget {
   }
 }
 
-
 class PlaceholderMemberScreen extends StatelessWidget {
   final String title;
+
   const PlaceholderMemberScreen({super.key, required this.title});
 
   @override
