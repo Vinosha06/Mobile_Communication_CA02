@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/photo_helper.dart';
-
 class Member9Screen extends StatelessWidget {
   const Member9Screen({super.key});
 
@@ -47,11 +45,13 @@ class Member9Screen extends StatelessWidget {
             const Text('$studentId • $email • $address'),
             const SizedBox(height: 14),
             ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: memberAvatarImage(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
                 photoPath,
                 width: double.infinity,
-                height: 180,
+                height: 300,
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
               ),
             ),
             const SizedBox(height: 16),
