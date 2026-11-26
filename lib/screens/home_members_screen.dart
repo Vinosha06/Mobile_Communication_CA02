@@ -29,11 +29,11 @@ class HomeMembersScreen extends StatelessWidget {
       ),
       MemberItem(
         number: 2,
-        name: 'Malmi Numaya Kodiweera',
+        name: 'Numaya Kodiweera',
         studentId: '23IT0496',
         subtitle: 'Student at ITUM',
         color: Colors.cyan,
-        builder: (_) => const PlaceholderMemberScreen(title: 'Member 2'),
+        builder: (_) => const Member2Screen(),
       ),
       MemberItem(
         number: 3,
