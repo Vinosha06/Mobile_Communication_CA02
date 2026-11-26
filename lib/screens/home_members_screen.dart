@@ -57,7 +57,7 @@ class HomeMembersScreen extends StatelessWidget {
         studentId: '23IT0497',
         subtitle: 'Student at ITUM',
         color: Colors.deepOrange,
-        builder: (_) => const PlaceholderMemberScreen(title: 'Member 5'),
+        builder: (_) => const Member5Screen(),
       ),
       MemberItem(
         number: 6,
@@ -65,7 +65,7 @@ class HomeMembersScreen extends StatelessWidget {
         studentId: '23IT0492',
         subtitle: 'Student at ITUM',
         color: Colors.purple,
-        builder: (_) => const PlaceholderMemberScreen(title: 'Member 6'),
+        builder: (_) => const Member6Screen(),
       ),
       MemberItem(
         number: 7,

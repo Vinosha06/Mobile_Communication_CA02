@@ -8,7 +8,7 @@ class Member6Screen extends StatelessWidget {
   static const String studentId = '23IT0492';
   static const String address = 'Bandarawela, Sri Lanka';
   static const String email = 'kaweeshvera41@gmail.com';
-  static const String photoPath = 'assets/images/member_6.jpg';
+  static const String photoPath = 'assets/images/Randil.jpeg';
 
   static const List<String> academics = [
     'Higher National Diploma in Information Technology - Present',
@@ -37,7 +37,7 @@ class Member6Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Randil Kaveeshwara'),
+        title: const Text('Member 06'),
         backgroundColor: Colors.purple,
         foregroundColor: Colors.white,
       ),
